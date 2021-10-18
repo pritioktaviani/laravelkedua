@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CobaController;
+use App\Models\Friends;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,16 +13,7 @@ use App\Http\Controllers\CobaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/coba', function () {
-    return view('coba');
-});
-
-Route::get('/coba/{no}',[CobaController::class, 'coba']);
-
-Route::get('/test', [CobaController::class, 'index']);
-Route::get('/test/{ke}', [CobaController::class, 'urutan']);
+Route::get('', [CobaController::class, 'index']);
+Route::get('/friends', [CobaController::class, 'index']);
+Route::get('/friends/create', [CobaController::class, 'create']);
+Route::post('/friends/store', [CobaController::class, 'store']);
